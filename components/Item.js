@@ -1,17 +1,18 @@
-import React from 'react'
-import {Text, View, StyleSheet, Image, TouchableHighlight} from 'react-native'
+import React, { memo } from 'react'
+import { Text, View, StyleSheet, Image, TouchableHighlight } from 'react-native'
 import numeral from 'numeral'
 import Ticker from './Ticker'
 import { formatNumber } from '../utils'
 
 const Item = ({ item, navigation }) => {
+  console.log('item')
   return (
     <TouchableHighlight onPress={() => navigation.navigate('Detail', { name: item.symbol.toUpperCase(), id: item.id })}>
       <View style={styles.item}>
         <View style={styles.left}>
           <Image
             style={styles.icon}
-            source={{uri: item.image}}
+            source={{ uri: item.image }}
           />
           <Text style={styles.title}>{item.symbol}</Text>
         </View>
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#000',
-    fontSize: 24,
+    fontSize: 16,
     textTransform: 'uppercase'
   },
   number: {
@@ -51,8 +52,8 @@ const styles = StyleSheet.create({
     textAlign: 'right'
   },
   icon: {
-    width: 24,
-    height: 24,
+    width: 16,
+    height: 16,
     marginRight: 8
   },
   left: {
@@ -71,4 +72,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Item
+export default memo(Item)

@@ -27,7 +27,7 @@ export default function App() {
           options={{
             title: '市場',
           }}
-          
+
         />
         <Stack.Screen
           name="Detail"
